@@ -1,0 +1,68 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif, 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+}
+
+body{
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background-image: linear-gradient(to right, #ee9ca7, #ffdde1);
+}
+
+#container{
+    height: auto;
+    width: auto;
+}
+
+/*-------Start Quiz-------*/
+#start{
+    height: 70px;
+    width: 250px;
+    text-align: center;
+    padding: 20px 0;
+    background: rgb(238,156,167,.2);
+    color: #000;
+    font-size: 23px;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    cursor: pointer;
+    display: none;
+}
+
+#start:hover{
+    background: #f77070;
+    color: #e7f1e7;
+    font-weight: bold;
+    transition: 0.1s ease-in;
+}
+
+/*-------Instructions-------*/
+#guide{
+    height: auto;
+    width: 680px;
+    line-height: 1.5;
+    padding: 20px;
+    background: rgb(238,156,167,.2);
+    border-radius: 20px;
+    border: 2px solid #000000;
+    display: none;
+}
+#guide h2{
+    font-size: 40px;
+    text-align: center;
+}
+#guide h4{
+    height: 75px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 25px;
+}
+#guide #button{
+    height: 50px;
+    width: 100%;
+}
