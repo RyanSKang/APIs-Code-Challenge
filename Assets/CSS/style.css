@@ -30,7 +30,7 @@ body{
     border-radius: 20px;
     border: 2px solid #000000;
     cursor: pointer;
-    display: none;
+    /* display: none; */
 }
 
 #start:hover{
@@ -41,7 +41,7 @@ body{
 }
 
 /*-------Instructions-------*/
-#guide{
+/* #guide{
     height: auto;
     width: 680px;
     line-height: 1.5;
@@ -49,8 +49,8 @@ body{
     background: rgb(238,156,167,.2);
     border-radius: 20px;
     border: 2px solid #000000;
-    display: none;
-}
+    /* display: none; */
+/* }
 #guide h2{
     font-size: 40px;
     text-align: center;
@@ -65,4 +65,10 @@ body{
 #guide #button{
     height: 50px;
     width: 100%;
+}  */
+/* Question 1 */
+#question-1{
+    display: none;
+    justify-content: center;
+    align-items: center;
 }
