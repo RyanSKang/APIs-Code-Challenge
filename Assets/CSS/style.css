@@ -1,3 +1,4 @@
+/* Global Declarations */
 *{
     padding: 0;
     margin: 0;
@@ -44,33 +45,48 @@ body{
     display: flex;
     justify-content: space-between;
     position:fixed;
-    top: 0;
     left:0;
-    z-index: 999;
+    top: 0;
     width: 100%;
     height: 23px;
+    margin-top: 1%;
 }
 #score{
-    padding: 20px 0;
+    padding: 15px;
     width: 250px;
+    height: fit-content;
     font-size: 30px;
+    margin-left: 1%;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    cursor: pointer;
+    vertical-align: text-top;
+    flex-wrap: nowrap;
+    background-color: rgb(238,156,167,.2);
+}
+#score:hover{
+    background: #f77070;
+    color: #e7f1e7;
+    font-weight: 500;
+    transition: 0.1s ease-in;
 }
 #timer{
     font-size: 40px;
     margin-right: 2%;
 }
-
-/*-------Instructions-------*/
-/* #guide{
+/*-------Instruction Section-------*/
+#guide{
     height: auto;
-    width: 680px;
-    line-height: 1.5;
+    width: 1000px;
+    line-height: 1;
     padding: 20px;
     background: rgb(238,156,167,.2);
     border-radius: 20px;
     border: 2px solid #000000;
-    /* display: none; */
-/* }
+    margin-top: 15%;
+    display: none;
+}
 #guide h2{
     font-size: 40px;
     text-align: center;
@@ -83,12 +99,29 @@ body{
     font-size: 25px;
 }
 #guide #button{
-    height: 50px;
+    height: 50px; 
     width: 100%;
-}  */
-/* Question 1 */
-#question-1{
-    display: none;
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+}
+#guide #button button{
+    height: 50px;
+    width: 120px;
+    margin: 10px 25px;
+    outline: none;
+    background: rgb(238,156,167,.2);
+    color:#000;
+    border: 2px solid #000000;
+    border-radius: 15px;
+    font-size: 18px;
+    cursor: pointer;
+}
+#guide #button button:last-child{
+    margin: 10px 0;
+}
+#guide #button button:hover{
+    background: #f77070;
+    color: #e7f1e7;
+    font-weight: 500;
+    transition: 0.1s ease-in;
 }

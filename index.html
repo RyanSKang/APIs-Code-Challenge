@@ -19,11 +19,31 @@
 <!-- start section -->
 <section id="start">Start Quiz!</section>
 
+<!-- guide section -->
+<section id="guide">
+    <h2>Instructions!</h2>
+    <h4>1. You have 60 seconds to answer all questions</h4>
+    <h4>2. Once answer is selected. It can't be undone</h4>
+    <h4>3. You will get 10 points for each correct question</h4>
+    <h4>4. If a question is incorrect, 5 seconds will be subtracted from the clock</h4>
+    <h4>4. The game is over when all questions are answered OR the timer reaches 0</h4>
+    <h4>6. You can save your score and see on scoreboard!</h4>
+    <div id="button">
+        <button id="exit">Exit</button>
+        <button id="continue">Continue</button>
+    </div>
+</section>
+
 <!------Main Quiz Content------>
-<Main id="question-1">
+<Main id="questions">
     <h2 id="questionnaire"></h2>
     <div id="choices"></div>
 </Main>
+
+<!--------Answers Section -->
+<section id="total-correct"></section>
+    <h3 id="correct">Correct!</h3>
+    <h3 id="wrong">Wrong!</h3>
  </div>
 
 <script type="text/javascript" src="/Assets/JavaScript/script.js"></script>

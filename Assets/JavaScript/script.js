@@ -1,9 +1,10 @@
+// ---------Defined Variables---------
 var startBtn= document.querySelector('#start');
-var question1=document.querySelector('#question-1');
+var questionEL=document.querySelector('#questions');
 var questionArr=[
     {
-        question: 'Question 1',
-        choices: ['A','B','C','D'],
+        question: 'What does DOM stand for?',
+        choices: ['Document Object Model','Document Object Manipulation','Destroyer of Matter','Document of Main Elements'],
         answers:'A'
     }, {
         question: 'Question 2',
@@ -21,12 +22,33 @@ var questionArr=[
         question: 'Question 5',
         choices: ['A','B','C','D'],
         answers:'A'
+    },{
+        question: 'Question 6',
+        choices: ['A','B','C','D'],
+        answers:'A'
+    },{
+        question: 'Question 7',
+        choices: ['A','B','C','D'],
+        answers:'A'
+    },{
+        question: 'Question 8',
+        choices: ['A','B','C','D'],
+        answers:'A'
+    },{
+        question: 'Question 9',
+        choices: ['A','B','C','D'],
+        answers:'A'
+    },{
+        question: 'Question 10',
+        choices: ['A','B','C','D'],
+        answers:'A'
     }
 ]
 var question=document.querySelector('#questionnaire');
 var index=0
 var choices=document.querySelector('#choices');
-
+var timerEl=document.querySelector('#timer');
+// -----------Defined Functions---------------
 function showQuestions(){
     question.textContent=questionArr[index].question;
     choices.innerHTML='';
@@ -44,8 +66,25 @@ function nextQuestion(){
 }
 
 function beginQuiz(){
-    question1.style.display="block";
+    questionEL.style.display="block";
     startBtn.style.display='none';
     showQuestions();
 }
+function countDown() {
+    var timeLeft= 15;
+    var timeInterval= setInterval(function(){
+        if (timeLeft > 1){
+            timerEl.textContent= timeLeft = ' seconds remaining';
+            timeLeft--;
+        }else if (timeLeft===1){
+            timerEl.textContent=timeLeft + ' second remaining';
+            timeLeft--;
+        }else {
+            timerEl.textContent='';
+            clearInterval(timeInterval);
+            displayMessage();
+        }
+    }, 1000);
+}
+// --------------Event Listeners---------------
 startBtn.addEventListener('click',beginQuiz)
