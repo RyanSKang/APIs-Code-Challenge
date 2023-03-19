@@ -35,15 +35,31 @@
 </section>
 
 <!------Main Quiz Content------>
-<Main id="questions">
-    <h2 id="questionnaire"></h2>
-    <div id="choices"></div>
-</Main>
-
+<Main id="quiz">
+    <div id="question">
+        <h2 id="questionNo"></h2>
+        <h2 id="questionText"></h2>
+    </div>
+    <div id="optionList">
+        <h4 class="choice_que" id="option1"></h4>
+        <h4 class="choice_que" id="option2"></h4>
+        <h4 class="choice_que" id="option3"></h4>
+        <h4 class="choice_que" id="option4"></h4>
+    </div>
 <!--------Answers Section -->
-<section id="total-correct"></section>
+<section class="total-correct">
     <h3 id="correct">Correct!</h3>
     <h3 id="wrong">Wrong!</h3>
+</section>  
+</Main>
+<!------------Result Section--------->
+<section id="results">
+    <i class="fas fa-trophy"></i>
+    <h6>You Completed The Quiz</h6>
+    <h6 id="points"></h6>
+    <input type="text"
+    <input type="submit">
+</section>
  </div>
 
 <script type="text/javascript" src="/Assets/JavaScript/script.js"></script>

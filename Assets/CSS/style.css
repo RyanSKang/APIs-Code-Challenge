@@ -125,3 +125,14 @@ body{
     font-weight: 500;
     transition: 0.1s ease-in;
 }
+
+/*-------------Answers Section-----------*/
+.total-correct h3{
+    display: inline;
+    margin: 0px 30px;
+    color:#e7f1e7;
+    font-size: 40px;
+    font-weight: 400;
+    display: none;
+}
+
