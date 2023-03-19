@@ -32,12 +32,32 @@ body{
     cursor: pointer;
     /* display: none; */
 }
-
 #start:hover{
     background: #f77070;
     color: #e7f1e7;
     font-weight: bold;
     transition: 0.1s ease-in;
+}
+
+/*-------Top view Highsore and Timer-------*/
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+    position:fixed;
+    top: 0;
+    left:0;
+    z-index: 999;
+    width: 100%;
+    height: 23px;
+}
+#score{
+    padding: 20px 0;
+    width: 250px;
+    font-size: 30px;
+}
+#timer{
+    font-size: 40px;
+    margin-right: 2%;
 }
 
 /*-------Instructions-------*/
