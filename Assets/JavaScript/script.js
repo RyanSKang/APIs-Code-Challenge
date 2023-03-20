@@ -14,6 +14,7 @@ var time=document.querySelector('#timer');
 var quiz=document.querySelector('#quiz');
 var questionNo=document.querySelector('#questionNo');
 var questionText=document.querySelector('#questionText');
+var choiceList=document.querySelector('#optionList');
 
 var option1=document.querySelector('#option1');
 var option2=document.querySelector('#option2');
@@ -28,12 +29,13 @@ var correct=document.querySelector('#wrong');
 var points=document.querySelector('#totalPoints');
 var result=document.querySelector('#results');
 var submit=document.querySelector('#submit');
-var totalPoints=10;
+var totalPoints=0;
 
 // Get all option from optionList
 var choiceQue=document.querySelector(".choice_que");
 var index=0;
 var timeLeft=60;
+var interval=0;
 
 // User Answer Value
 var userAns= undefined;
@@ -56,10 +58,10 @@ function countDown(){
         // as long as the timeLeft is greater than 1
         if (timeLeft > 1){
         // Need to set the textContent of var 'time' to show the remaining seconds
-            time.textContent= timeLeft + ' seconds remaining';
+            time.textContent='Timer: ' + timeLeft + ' seconds remaining';
             timeLeft--;
         }else if (timeLeft===1){
-            time.textContent=timeLeft = 'second remaining';
+            time.textContent='Timer: ' + timeLeft + 'second remaining';
             timeLeft--;
         //Need to clear out timer once it hits zero and bring to game over page 
         }else{
@@ -71,24 +73,47 @@ function countDown(){
 }
 
 // Need to set up question function
-var loadData=()=>{
+function loadData(){
     questionNo.innerText= index + 1 + ". "
     questionText.innerText= questionArr[index].question;
     option1.innerText= questionArr[index].choice1;
     option2.innerText= questionArr[index].choice2;
     option3.innerText= questionArr[index].choice3;
     option4.innerText= questionArr[index].choice4;
-
-    time=60;
 }
 loadData();
 
-// Continue Btn addEventListener in Instructions
-continueBtn.addEventListener('click', () =>{
+// Begin Quiz Function
+function beginQuiz(){
     quiz.style.display='block';
     guide.style.display='none';
-    time.style.display='flex';
+    countDown();
+    
+}
+// Continue Btn addEventListener in Instructions
+continueBtn.addEventListener('click', beginQuiz)
 
-    interval.setInterval(countDown, 1000);
+// Next question display after selection answer from previous question
+function nextQuestion(){
+    index++;
     loadData();
-})
+    checkAnswer();
+   }
+choiceList.addEventListener('click', nextQuestion);   
+
+// Check Answer
+function checkAnswer(){
+    var choiceNo=choiceQue
+    if (choiceNo===questionArr[index].answer){
+        totalPoints++;
+    } else {
+        totalPoints += 0;
+    }
+}
+
+// What happens when quiz is done
+function gameOver(){
+    quiz.style.display='none';
+    points.innerHTML= 'You got' + totalPoints*10 + ' points!';
+    result.style.display='block';   
+}

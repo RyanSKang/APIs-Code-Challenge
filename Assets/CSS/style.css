@@ -74,7 +74,6 @@ body{
 #timer{
     font-size: 40px;
     margin-right: 2%;
-    display:none;   
 }
 /*-------Instruction Section-------*/
 #guide{
@@ -153,17 +152,25 @@ body{
 #quiz #optionList{
     height: 400px;
     width: 100%;
-    position: flex;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
     top: 20%;
 }
-#quiz #optionList h4{
+#quiz #optionList button{
     height: 50px;
-    width: 535px;
+    width: 100%;
     background: rgb(238,156,167);
-    line-height: 50px;
-    margin: 5px 0;
+    line-height: 1.2;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
     border-radius: 7px;
-    padding: 0 20px;
+    padding: 20px 20px;
     font-size: 20px;
     color: #000000;
     overflow: hidden;
@@ -172,7 +179,7 @@ body{
     margin-top: 10%;
     transition: 0.3s ease;
 }
-#quiz #optionList h4:hover{
+#quiz #optionList button:hover{
     font-weight: bold;
     font-size: 23px;
     border: 4px solid #fff;
