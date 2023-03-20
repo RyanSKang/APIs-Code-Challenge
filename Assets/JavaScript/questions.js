@@ -4,7 +4,7 @@ let questionArr=[{
     choice2: "Document Object Model",
     choice3: "Document of Main Elements",
     choice4: "Document Object Manipulation",
-    answer: 1
+    answer: "Document Object Model",
 },
     {
     question: "What does HTML stand for?",
@@ -12,7 +12,7 @@ let questionArr=[{
     choice2: "Hyper Text Markup Language",
     choice3: "Hyper Text Making Language",
     choice4: "Hyper Text Mark Language",
-    answer: 1
+    answer: "Hyper Text Markup Language",
     },
     {
     question: "What is one way to return an element in JavaScript?",
@@ -20,7 +20,7 @@ let questionArr=[{
     choice2: "queryselector()",
     choice3: "getElementsByClassName()",
     choice4: "All the Above",
-    answer: 3
+    answer: "All the Above",
     },
     {
     question: "What does CSS stand for?",
@@ -28,7 +28,7 @@ let questionArr=[{
     choice2: "Creative Style Sheet",
     choice3: "Cascading Style Sheet",
     choice4: "Computer Style Sheet",
-    answer: 2
+    answer: "Cascading Style Sheet",
     },
     {
     question: "What is the world's most popular programming language?",
@@ -36,7 +36,7 @@ let questionArr=[{
     choice2: "Java",
     choice3: "Python",
     choice4: "C++",
-    answer: 0
+    answer: "JavaScript",
     },
     {
     question: "How do you insert a comment in a CSS file?",
@@ -44,7 +44,7 @@ let questionArr=[{
     choice2: "//This Is Comment",
     choice3: "<!--- This Is Comment --->",
     choice4: "//This Is Comment//",
-    answer: 0
+    answer: "/*This is Comment*/",
     },
     {
     question: "Inside which HTML element do we put the JavaScript?",
@@ -52,7 +52,7 @@ let questionArr=[{
     choice2: "<js>",
     choice3: "<scripting>",
     choice4: "<script>",
-    answer: 3
+    answer: "<script>",
     },
     {
     question: "How do you declare a JavaScript variable?",
@@ -60,7 +60,7 @@ let questionArr=[{
     choice2: "variable carName;",
     choice3: "var carName;",
     choice4: "carName=",
-    answer: 2
+    answer: "var carName;",
     },
     {
     question: "How do you create a function in JavaScript?",
@@ -68,7 +68,7 @@ let questionArr=[{
     choice2: "function:myFunction()",
     choice3: "myFunction()",
     choice4: "function = myFunction()",
-    answer: 0
+    answer: "function myFunction()",  
     },
     {
     question: "How does a FOR loop start?",
@@ -76,5 +76,5 @@ let questionArr=[{
     choice2: "for i = 1 to 5",
     choice3: "for (i = 0; i <= 5)",
     choice4: "for (i = 0; i <= 5; i++)",  
-    answer: 3
+    answer: "for (i = 0; i <= 5; i++)",  
     }];

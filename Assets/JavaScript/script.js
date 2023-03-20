@@ -29,13 +29,14 @@ var correct=document.querySelector('#wrong');
 var points=document.querySelector('#points');
 var result=document.querySelector('#results');
 var submit=document.querySelector('#submit');
-var totalPoints=10;
+var totalPoints=0;
 
 // Get all option from optionList
 var choiceQue=document.querySelector(".choice_que");
 var index=0;
 var timeLeft=60;
 var interval=0;
+var currentQuestion=0
 
 // User Answer Value
 var userAns= undefined;
@@ -70,6 +71,7 @@ function countDown(){
             clearInterval(timeInterval);
             gameOver();
         }
+
     },1000);
 }
 
@@ -94,25 +96,41 @@ function beginQuiz(){
 // Continue Btn addEventListener in Instructions
 continueBtn.addEventListener('click', beginQuiz)
 
+//Check Answer 
+function checkAnswer(){
+    if(choiceList===questionArr[index].answer){
+        totalPoints=totalPoints + 10
+    } 
+}
+
 // Next question display after selection answer from previous question
-function nextQuestion(){
-    var choiceNo=choiceQue
-    if (choiceNo===questionArr[index].answer){
-        totalPoints++;
+choiceList.addEventListener('click', nextQuestion);   
+
+function nextQuestion(event){
+    if (event.target.textContent===questionArr[currentQuestion].answer){
+        totalPoints +=10;
     } else {
-        totalPoints += 0;
+        if (timeLeft >=5){
+            timeLeft=timeLeft - 5;
+            time.textContent='Timer: ' + timeLeft + ' seconds remaining';
+            countDown();
+        }
     }
+    currentQuestion++;
+    // if (currentQuestion==questionArr.length){
+    //     clearInterval(interval);
+    //     gameOver();
+    // } else{
+    //     loadData()
+    // }
     index++;
     loadData();
-    checkAnswer();
-   }
-choiceList.addEventListener('click', nextQuestion);   
+}
 
 // What happens when quiz is done
 function gameOver(){
     quiz.style.display='none';
     result.style.display='block';  
     points.style.display='block'; 
-    points.innerHTML= 'You got ' + totalPoints*10 + ' points!';
-    points.style('font-weight:bold;');
+    points.innerHTML= 'You got ' + totalPoints + ' points!';
 }
