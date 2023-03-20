@@ -26,10 +26,10 @@ var correct=document.querySelector('#correct');
 var correct=document.querySelector('#wrong');
 
 // Result Section
-var points=document.querySelector('#totalPoints');
+var points=document.querySelector('#points');
 var result=document.querySelector('#results');
 var submit=document.querySelector('#submit');
-var totalPoints=0;
+var totalPoints=10;
 
 // Get all option from optionList
 var choiceQue=document.querySelector(".choice_que");
@@ -44,6 +44,7 @@ var userAns= undefined;
 start.addEventListener('click',()=>{
     start.style.display='none';
     guide.style.display='block';
+
 })
 
 // Exit Btn Event Listener in Instructions
@@ -95,25 +96,23 @@ continueBtn.addEventListener('click', beginQuiz)
 
 // Next question display after selection answer from previous question
 function nextQuestion(){
-    index++;
-    loadData();
-    checkAnswer();
-   }
-choiceList.addEventListener('click', nextQuestion);   
-
-// Check Answer
-function checkAnswer(){
     var choiceNo=choiceQue
     if (choiceNo===questionArr[index].answer){
         totalPoints++;
     } else {
         totalPoints += 0;
     }
-}
+    index++;
+    loadData();
+    checkAnswer();
+   }
+choiceList.addEventListener('click', nextQuestion);   
 
 // What happens when quiz is done
 function gameOver(){
     quiz.style.display='none';
-    points.innerHTML= 'You got' + totalPoints*10 + ' points!';
-    result.style.display='block';   
+    result.style.display='block';  
+    points.style.display='block'; 
+    points.innerHTML= 'You got ' + totalPoints*10 + ' points!';
+    points.style('font-weight:bold;');
 }

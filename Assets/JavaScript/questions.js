@@ -44,7 +44,7 @@ let questionArr=[{
     choice2: "//This Is Comment",
     choice3: "<!--- This Is Comment --->",
     choice4: "//This Is Comment//",
-    answer: 2
+    answer: 0
     },
     {
     question: "Inside which HTML element do we put the JavaScript?",
