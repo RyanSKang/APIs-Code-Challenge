@@ -14,7 +14,7 @@
 <!-------View Highscore and timer Section------>
 <div class="d-flex justify-content-between">
     <button id="score">View Highscore</button>
-    <p id="timer">Timer: 00:00</p>
+    <p id="timer"></p>
 </div>
 
 <!-- start section -->
@@ -38,14 +38,14 @@
 <!------Main Quiz Content------>
 <Main id="quiz">
     <div id="question">
-        <h2 id="questionNo"></h2>
-        <h2 id="questionText"></h2>
+        <h2 id="questionNo">1</h2>
+        <h2 id="questionText">whatever the question is</h2>
     </div>
     <div id="optionList">
-        <h4 class="choice_que" id="option1"></h4>
-        <h4 class="choice_que" id="option2"></h4>
-        <h4 class="choice_que" id="option3"></h4>
-        <h4 class="choice_que" id="option4"></h4>
+        <h4 class="choice_que" id="option1">a</h4>
+        <h4 class="choice_que" id="option2">b</h4>
+        <h4 class="choice_que" id="option3">c</h4>
+        <h4 class="choice_que" id="option4">d</h4>
     </div>
 <!--------Answers Section -->
 <section class="total-correct">
@@ -54,16 +54,18 @@
 </section>  
 </Main>
 <!------------Result Section--------->
+<section id="points">
+    <h2 id="totalPoints">You got 80 points!</h2>
+</section>
 <section id="results">
     <i class="fas fa-trophy" id="trophy"></i>
     <i class="fas fa-trophy" id="secondTrophy"></i>
     <h6>You Completed The Quiz! <br id="break"> Enter your name!</h6>
-    <h6 id="points"></h6>
     <input type="text">
     <input type="submit" id="submit">
 </section>
  </div>
-
+<script type="text/javascript" src="/Assets/JavaScript/questions.js"></script>
 <script type="text/javascript" src="/Assets/JavaScript/script.js"></script>
 </body>
 </html>
