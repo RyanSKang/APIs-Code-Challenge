@@ -31,7 +31,7 @@ body{
     border-radius: 20px;
     border: 2px solid #000000;
     cursor: pointer;
-    /* display: none; */
+    display: none;
 }
 #start:hover{
     background: #f77070;
@@ -134,5 +134,67 @@ body{
     font-size: 40px;
     font-weight: 400;
     display: none;
+}
+
+/*---------Result Section------------- */
+#container #results{
+    height: 200px;
+    width: 450px;
+    padding: 20px;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    overflow: hidden;
+    position: relative;
+}
+
+#results #trophy{
+    font-size: 80px;
+    color: rgb(226, 86, 198);
+    position: absolute;
+    bottom: 1%;
+    left: 1%;
+}
+#results #secondTrophy{
+    font-size: 80px;
+    color: rgb(226, 86, 198);
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+}
+
+#container #results h6{
+    height:10%;
+    width:87%;
+    font-size: 23px;
+    position: absolute;
+    text-align: center;
+    top:0;
+}
+#container #results input{
+    display: inline;
+    align-items: center;
+    margin-top: 9%;
+    margin-left: 27%;
+    top: 0;
+    width: 45%;
+    padding: 10px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #000;
+    font-size: 23px;
+    font-weight: 500;
+    border-radius: 20px;
+    border: 2px solid #000000;
+    cursor: pointer;
+}
+#results #submit{
+    background:rgb(238,156,167,.2);
+}
+
+#results #submit:hover{
+    background: #f77070;
+    color: #e7f1e7;
+    font-weight: bold;
+    transition: 0.1s ease-in;
 }
 
