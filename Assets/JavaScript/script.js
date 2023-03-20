@@ -82,7 +82,7 @@ function loadData(){
     option2.innerText= questionArr[index].choice2;
     option3.innerText= questionArr[index].choice3;
     option4.innerText= questionArr[index].choice4;
-}
+    }
 loadData();
 
 // Begin Quiz Function
@@ -94,13 +94,6 @@ function beginQuiz(){
 }
 // Continue Btn addEventListener in Instructions
 continueBtn.addEventListener('click', beginQuiz)
-
-//Check Answer 
-function checkAnswer(){
-    if(choiceList===questionArr[index].answer){
-        totalPoints=totalPoints + 10
-    } 
-}
 
 // Next question display after selection answer from previous question
 choiceList.addEventListener('click', nextQuestion);   
@@ -122,8 +115,20 @@ function nextQuestion(event){
 
 // What happens when quiz is done
 function gameOver(){
+    clearInterval(interval);
     quiz.style.display='none';
+    time.style.display='none';
     result.style.display='block';  
     points.style.display='block'; 
     points.innerHTML= 'You got ' + totalPoints + ' points!';
+}
+
+// what happens when you submit name when quiz is done
+submit.addEventListener('click',quizComplete);
+
+function quizComplete(){
+    result.style.display='none';
+    quiz.style.display='none';
+    points.style.display='none';
+    start.style.display='block';
 }
