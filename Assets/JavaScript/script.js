@@ -39,3 +39,56 @@ var timeLeft=60;
 var userAns= undefined;
 
 // Start btn Event Listener
+start.addEventListener('click',()=>{
+    start.style.display='none';
+    guide.style.display='block';
+})
+
+// Exit Btn Event Listener in Instructions
+exit.addEventListener('click', ()=> {
+    start.style.display='block';
+    guide.style.display='none';
+})
+
+// Creating Timer for Quiz when it begins
+function countDown(){
+    var timeInterval= setInterval(function(){
+        // as long as the timeLeft is greater than 1
+        if (timeLeft > 1){
+        // Need to set the textContent of var 'time' to show the remaining seconds
+            time.textContent= timeLeft + ' seconds remaining';
+            timeLeft--;
+        }else if (timeLeft===1){
+            time.textContent=timeLeft = 'second remaining';
+            timeLeft--;
+        //Need to clear out timer once it hits zero and bring to game over page 
+        }else{
+            time.textContent='';
+            clearInterval(timeInterval);
+            gameOver();
+        }
+    },1000);
+}
+
+// Need to set up question function
+var loadData=()=>{
+    questionNo.innerText= index + 1 + ". "
+    questionText.innerText= questionArr[index].question;
+    option1.innerText= questionArr[index].choice1;
+    option2.innerText= questionArr[index].choice2;
+    option3.innerText= questionArr[index].choice3;
+    option4.innerText= questionArr[index].choice4;
+
+    time=60;
+}
+loadData();
+
+// Continue Btn addEventListener in Instructions
+continueBtn.addEventListener('click', () =>{
+    quiz.style.display='block';
+    guide.style.display='none';
+    time.style.display='flex';
+
+    interval.setInterval(countDown, 1000);
+    loadData();
+})
