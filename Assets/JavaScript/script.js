@@ -36,7 +36,6 @@ var choiceQue=document.querySelector(".choice_que");
 var index=0;
 var timeLeft=60;
 var interval=0;
-var currentQuestion=0
 
 // User Answer Value
 var userAns= undefined;
@@ -107,23 +106,17 @@ function checkAnswer(){
 choiceList.addEventListener('click', nextQuestion);   
 
 function nextQuestion(event){
-    if (event.target.textContent===questionArr[currentQuestion].answer){
+    if (event.target.textContent===questionArr[index].answer){
         totalPoints +=10;
     } else {
-        if (timeLeft >=5){
-            timeLeft=timeLeft - 5;
-            time.textContent='Timer: ' + timeLeft + ' seconds remaining';
-            countDown();
-        }
+            timeLeft-=5;
     }
-    currentQuestion++;
-    // if (currentQuestion==questionArr.length){
-    //     clearInterval(interval);
-    //     gameOver();
-    // } else{
-    //     loadData()
-    // }
     index++;
+    if(index<questionArr.length){
+        loadData();
+    } else{
+        gameOver();
+    }
     loadData();
 }
 
