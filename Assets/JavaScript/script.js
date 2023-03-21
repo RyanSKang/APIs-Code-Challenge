@@ -9,6 +9,9 @@ var continueBtn=document.querySelector('#continue');
 // Highscore and Timer Section
 var score=document.querySelector('#score');
 var time=document.querySelector('#timer');
+var exitBtn=document.querySelector('#hsExit');
+var scoreBoard=document.querySelector('#scoreTitle');
+var scoreQue=document.querySelector('#scoreQue');
 
 // Main Quiz Content
 var quiz=document.querySelector('#quiz');
@@ -34,17 +37,21 @@ var totalPoints=0;
 // Get all option from optionList
 var choiceQue=document.querySelector(".choice_que");
 var index=0;
-var timeLeft=60;
 var interval=0;
+var timeLeft=60;
 
-// User Answer Value
-var userAns= undefined;
+// Defining local storage array
+var highscore=[];
+
+//Need to hide View highscore exit btn from the getgo
+exitBtn.style.display='none'; 
+
 
 // Start btn Event Listener
 start.addEventListener('click',()=>{
     start.style.display='none';
     guide.style.display='block';
-
+    
 })
 
 // Exit Btn Event Listener in Instructions
@@ -55,22 +62,26 @@ exit.addEventListener('click', ()=> {
 
 // Creating Timer for Quiz when it begins
 function countDown(){
-    var timeInterval= setInterval(function(){
+    timeInterval= setInterval(function(){
         // as long as the timeLeft is greater than 1
-        if (timeLeft > 1){
-        // Need to set the textContent of var 'time' to show the remaining seconds
-            time.textContent='Timer: ' + timeLeft + ' seconds remaining';
+        if (timeLeft>1){
+            // Need to set the textContent of var 'time' to show the remaining seconds
+            time.textContent='Timer: ' + timeLeft + ' s';
             timeLeft--;
-        }else if (timeLeft===1){
-            time.textContent='Timer: ' + timeLeft + 'second remaining';
-            timeLeft--;
-        //Need to clear out timer once it hits zero and bring to game over page 
-        }else{
+        }else if(timeLeft>1 && index==questionArr.length){
+            clearInterval(timeInterval);
+        }
+        else{
+            //Need to clear out timer once it hits zero and bring to game over page 
             time.textContent='';
             clearInterval(timeInterval);
-            gameOver();
+            if(index==questionArr.length){
+            return;
+            }else {
+                gameOver();
+            }
         }
-
+        
     },1000);
 }
 
@@ -82,15 +93,17 @@ function loadData(){
     option2.innerText= questionArr[index].choice2;
     option3.innerText= questionArr[index].choice3;
     option4.innerText= questionArr[index].choice4;
-    }
-loadData();
+}
 
 // Begin Quiz Function
 function beginQuiz(){
+    index=0;
+    timeLeft=60
     quiz.style.display='block';
     guide.style.display='none';
+    time.style.display='block';
     countDown();
-    
+    loadData();  
 }
 // Continue Btn addEventListener in Instructions
 continueBtn.addEventListener('click', beginQuiz)
@@ -102,7 +115,7 @@ function nextQuestion(event){
     if (event.target.textContent===questionArr[index].answer){
         totalPoints +=10;
     } else {
-            timeLeft-=5;
+        timeLeft-=5;
     }
     index++;
     if(index<questionArr.length){
@@ -115,7 +128,6 @@ function nextQuestion(event){
 
 // What happens when quiz is done
 function gameOver(){
-    clearInterval(interval);
     quiz.style.display='none';
     time.style.display='none';
     result.style.display='block';  
@@ -124,6 +136,26 @@ function gameOver(){
 }
 
 // what happens when you submit name when quiz is done
+submit.addEventListener('click',function(event){
+// User Answer Value
+console.log('submit clicked');
+event.preventDefault();
+var studentName=document.querySelector('#name').value; 
+var userAns= {
+name: studentName,
+highscore: totalPoints,
+}
+// how to get local storage
+highscore= JSON.parse(window.localStorage.getItem('userScores')) || [];
+
+// how to push local storage array
+highscore.push(userAns);
+
+// how to set highscore by storing in local storage first
+    localStorage.setItem("userScores", JSON.stringify(highscore))
+})
+// appendChild of localStorage to HTML
+
 submit.addEventListener('click',quizComplete);
 
 function quizComplete(){
@@ -131,4 +163,20 @@ function quizComplete(){
     quiz.style.display='none';
     points.style.display='none';
     start.style.display='block';
+}
+
+score.addEventListener('click', function(event){
+    highscore= JSON.parse(window.localStorage.getItem('userScores')) || [];
+    console.log(highscore);
+    viewHighscore(highscore);
+})
+
+function viewHighscore(score){
+    var highScoreSheet=document.querySelector('#scoresheet');
+    start.style.display='none';
+    quiz.style.display='none';
+    points.style.display='none';
+    result.style.display='none';
+    highScoreSheet.style.display='flex';
+    highScoreSheet.textContent=score.name, score.highscore;
 }
