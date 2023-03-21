@@ -179,6 +179,7 @@ function viewHighscore(score){
     points.style.display='none';
     result.style.display='none';
     highScoreSheet.style.display='block';
+    scoreBoard.innerHTML='ScoreBoard'
     exitBtn.style.display='flex';
     // highScoreSheet.textContent=(score[0].name + ': ' + score[0].highscore)
     for (i=0; i<highscore.length;i++){
