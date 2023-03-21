@@ -10,6 +10,7 @@ var continueBtn=document.querySelector('#continue');
 var score=document.querySelector('#score');
 var time=document.querySelector('#timer');
 var exitBtn=document.querySelector('#hsExit');
+var scoreMain=document.querySelector('#scoresheet');
 var scoreBoard=document.querySelector('#scoreTitle');
 var scoreQue=document.querySelector('#scoreQue');
 
@@ -42,9 +43,6 @@ var timeLeft=60;
 
 // Defining local storage array
 var highscore=[];
-
-//Need to hide View highscore exit btn from the getgo
-exitBtn.style.display='none'; 
 
 
 // Start btn Event Listener
@@ -168,15 +166,29 @@ function quizComplete(){
 score.addEventListener('click', function(event){
     highscore= JSON.parse(window.localStorage.getItem('userScores')) || [];
     console.log(highscore);
+    start.style.display='none';
+    scoreMain.style.display='grid';
     viewHighscore(highscore);
 })
+// making this variable in the global scope for the following functions
+var highScoreSheet=document.querySelector('#scoresheet');
 
 function viewHighscore(score){
-    var highScoreSheet=document.querySelector('#scoresheet');
     start.style.display='none';
     quiz.style.display='none';
     points.style.display='none';
     result.style.display='none';
-    highScoreSheet.style.display='flex';
-    highScoreSheet.textContent=score.name, score.highscore;
+    highScoreSheet.style.display='block';
+    exitBtn.style.display='flex';
+    // highScoreSheet.textContent=(score[0].name + ': ' + score[0].highscore)
+    for (i=0; i<highscore.length;i++){
+        highScoreSheet.append(score[i].name + ': ' +  score[i].highscore);
+    }
 }
+
+function homePage(){
+scoreMain.style.display='none';
+start.style.display='block';
+}
+
+exitBtn.addEventListener('click',homePage);
