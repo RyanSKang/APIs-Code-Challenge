@@ -77,4 +77,4 @@ let questionArr=[{
     choice3: "for (i = 0; i <= 5)",
     choice4: "for (i = 0; i <= 5; i++)",  
     answer: "for (i = 0; i <= 5; i++)",  
-    }];
+}];
