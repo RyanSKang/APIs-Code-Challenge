@@ -8,7 +8,7 @@ The importance of creating a quiz game using HTML, CSS and JavaScript is to real
 
 No Installation required but you can access my deployed application via this link: 
 
-<a href="https://ryanskang.github.io/My-First-Portfolio/" target="_blank">Quiz Challenge!</a>
+<a href="https://ryanskang.github.io/APIs-Code-Challenge/" target="_blank">Quiz Challenge!</a>
 
 ## Usage
 
